@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Tip Calculator App</title>
+  </head>
+  <body>
+    <div id="splitter-section">
+      <h2>S P L I<br />T T E R</h2>
+      <div id="bill-section">
+        <div id="bill-amount">
+          <h4>Bill</h4>
+          <div>
+            <form id="bill-input-form" class="input-form">
+              <img src=".\images\icon-dollar.svg" id="dollar-sign" />
+              <input type="text" placeholder="0" pattern="^[0-9]&" />
+            </form>
+          </div>
+        </div>
+        <div id="tip-selector">
+          <h4>Select Tip %</h4>
+          <div id="tip-selector-buttons">
+            <button id="button-5">5%</button>
+            <button id="button-10">10%</button>
+            <button id="button-15">15%</button>
+            <button id="button-25">25%</button>
+            <button id="button-50">50%</button>
+            <form id="custom-tip" class="input-form">
+              <input type="text" placeholder="Custom" />
+            </form>
+          </div>
+        </div>
+        <div id="qty-people">
+          <h4>Number of People</h4>
+          <div>
+            <form id="person-input-form" class="input-form">
+              <img src=".\images\icon-person.svg" id="person-sign" />
+              <input type="text" placeholder="0" pattern="^[0-9]&" />
+            </form>
+          </div>
+        </div>
+        <div id="calculated-values">
+          <div id="tip-amount-splitted">
+            <div>
+              <h5>Tip Amount</h5>
+              <h6>/ person</h6>
+            </div>
+            <div>$CAL</div>
+          </div>
+          <div id="bill-amount-splitted">
+            <div>
+              <h5>Total</h5>
+              <h6>/ person</h6>
+            </div>
+            <div>$CAL</div>
+          </div>
+          <button id="reset">RESET</button>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="script.js"></script>
+</html>
