@@ -12,6 +12,7 @@
     />
     <title>Tip Calculator App</title>
   </head>
+
   <body>
     <div id="splitter-section">
       <h2>S P L I<br />T T E R</h2>
@@ -28,13 +29,60 @@
         <div id="tip-selector">
           <h4>Select Tip %</h4>
           <div id="tip-selector-buttons">
-            <button id="button-5">5%</button>
-            <button id="button-10">10%</button>
-            <button id="button-15">15%</button>
-            <button id="button-25">25%</button>
-            <button id="button-50">50%</button>
-            <form id="custom-tip" class="input-form">
-              <input type="text" placeholder="Custom" />
+            <form id="custom-tip" class="input-form" name="tip-selection">
+              <label for="button-5" class="button-values">
+                <input
+                  id="button-5"
+                  type="radio"
+                  value="5%"
+                  name="tip-selection"
+                />
+                <div class="button-container">5%</div>
+              </label>
+              <label for="button-10" class="button-values">
+                <input
+                  id="button-10"
+                  type="radio"
+                  value="10%"
+                  name="tip-selection"
+                />
+                <div class="button-container">10%</div>
+              </label>
+              <label for="button-15" class="button-values">
+                <input
+                  id="button-15"
+                  type="radio"
+                  value="15%"
+                  name="tip-selection"
+                />
+                <div class="button-container">15%</div>
+              </label>
+              <label for="button-25" class="button-values">
+                <input
+                  id="button-25"
+                  type="radio"
+                  value="25%"
+                  name="tip-selection"
+                />
+                <div class="button-container">25%</div>
+              </label>
+              <label for="button-50" class="button-values">
+                <input
+                  id="button-50"
+                  type="radio"
+                  value="50%"
+                  name="tip-selection"
+                />
+                <div class="button-container">50%</div>
+              </label>
+              <label for="custom-option" class="button-values">
+                <input
+                  id="custom-option"
+                  type="text"
+                  name="tip-selection"
+                  placeholder="CUSTOM"
+                />
+              </label>
             </form>
           </div>
         </div>
@@ -62,7 +110,7 @@
             </div>
             <div>$CAL</div>
           </div>
-          <button id="reset">RESET</button>
+          <button id="reset-button" type="reset">RESET</button>
         </div>
       </div>
     </div>
