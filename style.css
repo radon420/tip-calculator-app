@@ -57,7 +57,12 @@ input[placeholder] {
 input:focus {
   border: 1px solid red;
 }
-
+.error-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: fit-content;
+}
 button {
   margin: 5px 10px;
   border-radius: 5px;
@@ -113,7 +118,7 @@ Bill Input Section
 }
 #bill-amount div {
   width: 100%;
-  padding: 10px 10px;
+  padding: 5px 10px;
 }
 /* 
 =====================
@@ -123,7 +128,6 @@ Selection Section
 */
 #tip-selector-buttons {
   width: 100%;
-  border: 1px dotted red;
 }
 #custom-tip {
   width: 100%;
@@ -235,6 +239,7 @@ Section
   width: 100%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin: 15px 0;
 }
 #tip-amount-splitted {
@@ -242,6 +247,11 @@ Section
 }
 #bill-amount-splitted {
   grid-area: 2 / 1 / 3 / 2;
+}
+#calculated-total,
+#calculated-tip {
+  font-size: 2.5rem;
+  color: hsl(172, 67%, 45%);
 }
 #reset-button {
   background-color: hsl(172, 67%, 45%);

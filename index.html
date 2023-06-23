@@ -18,11 +18,21 @@
       <h2>S P L I<br />T T E R</h2>
       <div id="bill-section">
         <div id="bill-amount">
-          <h4>Bill</h4>
+          <div class="error-container">
+            <h4>Bill</h4>
+            <span></span>
+          </div>
           <div>
             <form id="bill-input-form" class="input-form">
               <img src=".\images\icon-dollar.svg" id="dollar-sign" />
-              <input type="text" placeholder="0" pattern="^[0-9]&" />
+              <input
+                id="bill-amount-input"
+                type="text"
+                placeholder="0"
+                pattern="^[0-9]&"
+                maxlength="15"
+                onkeyup="blankBill()"
+              />
             </form>
           </div>
         </div>
@@ -91,7 +101,13 @@
           <div>
             <form id="person-input-form" class="input-form">
               <img src=".\images\icon-person.svg" id="person-sign" />
-              <input type="text" placeholder="0" pattern="^[0-9]&" />
+              <input
+                id="people-qty-input"
+                type="text"
+                placeholder="0"
+                maxlength="10"
+                pattern="^[0-9]&"
+              />
             </form>
           </div>
         </div>
@@ -101,16 +117,18 @@
               <h5>Tip Amount</h5>
               <h6>/ person</h6>
             </div>
-            <div>$CAL</div>
+            <div id="calculated-tip">$ 0.00</div>
           </div>
           <div id="bill-amount-splitted">
             <div>
               <h5>Total</h5>
               <h6>/ person</h6>
             </div>
-            <div>$CAL</div>
+            <div id="calculated-total">$ 0.00</div>
           </div>
-          <button id="reset-button" type="reset">RESET</button>
+          <button id="reset-button" type="reset" onclick="pageReset()">
+            RESET
+          </button>
         </div>
       </div>
     </div>
