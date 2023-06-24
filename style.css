@@ -63,7 +63,8 @@ input:focus {
   align-items: center;
   height: fit-content;
 }
-.error-container span {
+.error-container span,
+p {
   color: red;
   font-size: 0.75rem;
   margin: 0;

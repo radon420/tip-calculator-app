@@ -96,7 +96,9 @@
                   type="text"
                   name="tip-selection"
                   placeholder="CUSTOM"
-                  onclick="percentage()"
+                  pattern="/\d/g"
+                  maxlength="3"
+                  onkeyup="customTip()"
                 />
               </label>
             </form>
