@@ -63,6 +63,12 @@ input:focus {
   align-items: center;
   height: fit-content;
 }
+.error-container span {
+  color: red;
+  font-size: 0.75rem;
+  margin: 0;
+  padding: 0;
+}
 button {
   margin: 5px 10px;
   border-radius: 5px;
@@ -140,6 +146,7 @@ Selection Section
   display: none;
 }
 .button-values {
+  width: 100%;
   display: flex;
   justify-content: space-evenly;
 }
@@ -177,7 +184,7 @@ Selection Section
 #custom-option {
   display: block;
   background-color: hsl(189, 41%, 97%);
-  color: hsl(183, 100%, 15%);
+  color: hsl(186, 14%, 43%);
   width: 100%;
   height: 70px;
   border-radius: 10px;
@@ -185,6 +192,7 @@ Selection Section
   margin: 10px 10px;
 }
 #custom-option[placeholder] {
+  color: hsl(186, 14%, 43%);
   text-align: right;
   padding-right: 15px;
 }

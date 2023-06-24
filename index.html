@@ -29,7 +29,7 @@
                 id="bill-amount-input"
                 type="text"
                 placeholder="0"
-                pattern="^[0-9]&"
+                pattern="/\d/g"
                 maxlength="15"
                 onkeyup="blankBill()"
               />
@@ -44,8 +44,9 @@
                 <input
                   id="button-5"
                   type="radio"
-                  value="5%"
+                  value="5"
                   name="tip-selection"
+                  onclick="percentage()"
                 />
                 <div class="button-container">5%</div>
               </label>
@@ -53,8 +54,9 @@
                 <input
                   id="button-10"
                   type="radio"
-                  value="10%"
+                  value="10"
                   name="tip-selection"
+                  onclick="percentage()"
                 />
                 <div class="button-container">10%</div>
               </label>
@@ -62,8 +64,9 @@
                 <input
                   id="button-15"
                   type="radio"
-                  value="15%"
+                  value="15"
                   name="tip-selection"
+                  onclick="percentage()"
                 />
                 <div class="button-container">15%</div>
               </label>
@@ -71,8 +74,9 @@
                 <input
                   id="button-25"
                   type="radio"
-                  value="25%"
+                  value="25"
                   name="tip-selection"
+                  onclick="percentage()"
                 />
                 <div class="button-container">25%</div>
               </label>
@@ -80,8 +84,9 @@
                 <input
                   id="button-50"
                   type="radio"
-                  value="50%"
+                  value="50"
                   name="tip-selection"
+                  onclick="percentage()"
                 />
                 <div class="button-container">50%</div>
               </label>
@@ -91,13 +96,17 @@
                   type="text"
                   name="tip-selection"
                   placeholder="CUSTOM"
+                  onclick="percentage()"
                 />
               </label>
             </form>
           </div>
         </div>
         <div id="qty-people">
-          <h4>Number of People</h4>
+          <div class="error-container">
+            <h4>Number of People</h4>
+            <span></span>
+          </div>
           <div>
             <form id="person-input-form" class="input-form">
               <img src=".\images\icon-person.svg" id="person-sign" />
@@ -106,7 +115,8 @@
                 type="text"
                 placeholder="0"
                 maxlength="10"
-                pattern="^[0-9]&"
+                pattern="/\d/g"
+                onkeyup="blankPeople()"
               />
             </form>
           </div>
