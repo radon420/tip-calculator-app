@@ -1,7 +1,7 @@
 const errorPattern = /^[0-9]+$/;
 const zeroPattern = /^[0]+$/;
 let errorText = document.createElement("span");
-let customTipInput = document.createElement("p");
+let customTipInputError = document.createElement("p");
 // ===================
 // Input Values
 //    Check
@@ -16,9 +16,9 @@ function blankBill() {
       errorText.textContent;
   } else if (errorPattern.test(billAmount)) {
     errorText.textContent = "";
-    document.querySelector("#bill-amount .error-container span").innerHTML =
+    document.querySelector("#bill-amount .error-container-span").innerHTML =
       errorText.textContent;
-    tipCalculator();
+    // tipCalculator();
   } else errorText.textContent = "Pattern doesn't match. Numbers only";
   document.querySelector("#bill-amount .error-container span").innerHTML =
     errorText.textContent;
@@ -29,7 +29,7 @@ function blankPeople() {
 
   if (numberOfPeople == 0) {
     errorText.textContent = "Can't be zero";
-    document.querySelector("#qty-people .error-container span").innerHTML =
+    document.querySelector("#qty-people .error-container-span").innerHTML =
       errorText.textContent;
   } else if (errorPattern.test(numberOfPeople)) {
     errorText.textContent = "";
@@ -44,12 +44,12 @@ function blankPeople() {
 function customTip() {
   let customTipValue = document.querySelector("#custom-option").value;
 
-  customTipInput.innerHTML = "";
+  customTipInputError.innerHTML = "";
   if (!errorPattern.test(customTipValue)) {
     document
       .querySelector("label[for=custom-option]")
-      .appendChild(customTipInput);
-    customTipInput.innerHTML = "Pattern doesn't match";
+      .appendChild(customTipInputError);
+    customTipInputError.innerHTML = "Pattern doesn't match";
   } else tipCalculator();
 }
 
@@ -68,6 +68,17 @@ function percentage() {
 }
 
 // ===================
+//     Page Reset
+// ===================
+
+function tipButtonReset() {
+  let radioButton = document.getElementsByName("tip-selection");
+  for (let i = 0; i < radioButton.length; i++) {
+    radioButton[i].checked = false;
+  }
+}
+
+// ===================
 // Tip and Total
 // Calculations
 // ===================
@@ -80,7 +91,11 @@ function tipCalculator() {
   let totalPerPerson = document.querySelector("#calculated-total");
   let tipPerPerson = document.querySelector("#calculated-tip");
 
-  if (customTip.length == 0) {
+  if (typeof tipPercentage == "undefined") {
+    let calculatedTotal = billAmount / numberOfPeople;
+    totalPerPerson.textContent = "";
+    totalPerPerson.append("$ " + calculatedTotal.toFixed(2));
+  } else if (customTip.length == 0) {
     let calculatedTipPerPerson =
       (billAmount * (tipPercentage / 100)) / numberOfPeople;
     tipPerPerson.textContent = "";
@@ -90,24 +105,22 @@ function tipCalculator() {
       (billAmount * (1 + tipPercentage / 100)) / numberOfPeople;
     totalPerPerson.textContent = "";
     totalPerPerson.append("$ " + calculatedTotal.toFixed(2));
-  } else if (zeroPattern.test(customTip)) {
+  } else if (zeroPattern.test(customTip) || tipPercentage == "undefined") {
+    tipButtonReset();
     let calculatedTotal = billAmount / numberOfPeople;
     totalPerPerson.textContent = "";
     totalPerPerson.append("$ " + calculatedTotal.toFixed(2));
-  }
+  } else {
+    tipButtonReset();
+    let calculatedTipPerPerson =
+      (billAmount * (customTip / 100)) / numberOfPeople;
+    tipPerPerson.textContent = "";
+    tipPerPerson.append("$ " + calculatedTipPerPerson.toFixed(2));
 
-  let radioButton = document.getElementsByName("tip-selection");
-  for (let i = 0; i < radioButton.length; i++) {
-    radioButton[i].checked = false;
+    let calculatedTotal = (billAmount * (1 + customTip / 100)) / numberOfPeople;
+    totalPerPerson.textContent = "";
+    totalPerPerson.append("$ " + calculatedTotal.toFixed(2));
   }
-  let calculatedTipPerPerson =
-    (billAmount * (customTip / 100)) / numberOfPeople;
-  tipPerPerson.textContent = "";
-  tipPerPerson.append("$ " + calculatedTipPerPerson.toFixed(2));
-
-  let calculatedTotal = (billAmount * (1 + customTip / 100)) / numberOfPeople;
-  totalPerPerson.textContent = "";
-  totalPerPerson.append("$ " + calculatedTotal.toFixed(2));
 }
 
 // ===================
@@ -115,7 +128,8 @@ function tipCalculator() {
 // ===================
 
 function pageReset() {
-  errorText.remove();
+  document.querySelector(".error-container-span").remove();
+  document.querySelector("p").remove();
   document.querySelector("#bill-amount-input").value = "";
   document.querySelector("#people-qty-input").value = "";
   document.querySelector("#custom-option").value = "";

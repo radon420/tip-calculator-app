@@ -20,7 +20,7 @@
         <div id="bill-amount">
           <div class="error-container">
             <h4>Bill</h4>
-            <span></span>
+            <span class="error-container-span"></span>
           </div>
           <div>
             <form id="bill-input-form" class="input-form">
@@ -46,7 +46,7 @@
                   type="radio"
                   value="5"
                   name="tip-selection"
-                  onclick="percentage()"
+                  onclick="tipCalculator()"
                 />
                 <div class="button-container">5%</div>
               </label>
@@ -56,7 +56,7 @@
                   type="radio"
                   value="10"
                   name="tip-selection"
-                  onclick="percentage()"
+                  onclick="tipCalculator()"
                 />
                 <div class="button-container">10%</div>
               </label>
@@ -66,7 +66,7 @@
                   type="radio"
                   value="15"
                   name="tip-selection"
-                  onclick="percentage()"
+                  onclick="tipCalculator()"
                 />
                 <div class="button-container">15%</div>
               </label>
@@ -76,7 +76,7 @@
                   type="radio"
                   value="25"
                   name="tip-selection"
-                  onclick="percentage()"
+                  onclick="tipCalculator()"
                 />
                 <div class="button-container">25%</div>
               </label>
@@ -86,7 +86,7 @@
                   type="radio"
                   value="50"
                   name="tip-selection"
-                  onclick="percentage()"
+                  onclick="tipCalculator()"
                 />
                 <div class="button-container">50%</div>
               </label>
@@ -107,7 +107,7 @@
         <div id="qty-people">
           <div class="error-container">
             <h4>Number of People</h4>
-            <span></span>
+            <span class="error-container-span"></span>
           </div>
           <div>
             <form id="person-input-form" class="input-form">
